@@ -9,15 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CuideSe">
-        <activity android:name=".view.HistoricoView"></activity>
-        <activity android:name=".view.CadastroView" />
-        <activity android:name=".view.LoginView" />
-        <activity android:name=".view.InicioView">
+        <activity android:name=".view.Splash">
+        </activity>
+
+        <activity android:name=".view.LoginView">
+        </activity>
+
+        <activity android:name=".view.CadastroView" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".view.GraficoView" />
+
+        <activity android:name=".view.PrincipalView">
         </activity>
     </application>
 
