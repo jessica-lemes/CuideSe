@@ -7,7 +7,7 @@
     tools:context=".view.CadastroView">
 
     <TextView
-        android:id="@+id/tvCuideSe"
+        android:id="@+id/tvValorGlic"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:gravity="center"
@@ -19,8 +19,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/etValor"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:backgroundTint="@color/gray"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvValorGlic"-->
+<!--        tools:layout_editor_absoluteX="1dp"-->
+<!--        tools:layout_editor_absoluteY="678dp">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Valor" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
     <EditText
-        android:id="@+id/etNomeCad"
+        android:id="@+id/etValor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -28,14 +49,15 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/gray"
         android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
+        android:hint="Valor"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCuideSe" />
+        app:layout_constraintTop_toBottomOf="@+id/tvValorGlic" />
+
 
     <EditText
-        android:id="@+id/etEmailCad"
+        android:id="@+id/etData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -43,52 +65,52 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/gray"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNomeCad" />
-
-
-    <EditText
-        android:id="@+id/etSenhaCad"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
+        android:hint="Data"
+        android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailCad" />
+        app:layout_constraintTop_toBottomOf="@+id/etValor" />
 
     <EditText
-        android:id="@+id/etConfirmaSenhaCad"
+        android:id="@+id/etHora"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Confirmar senha"
-        android:inputType="textPassword"
+        android:hint="Hora"
+        android:inputType="datetime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etData" />
+
+    <EditText
+        android:id="@+id/etAnotacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Anotacao"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenhaCad" />
+        app:layout_constraintTop_toBottomOf="@+id/etHora" />
 
     <Button
-        android:id="@+id/btnTelaCad"
+        android:id="@+id/btnSalvarDados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Cadastrar"
+        android:text="Salvar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmaSenhaCad" />
+        app:layout_constraintTop_toBottomOf="@+id/etAnotacao" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
