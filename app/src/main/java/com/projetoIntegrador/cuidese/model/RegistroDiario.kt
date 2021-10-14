@@ -1,10 +1,11 @@
 package com.projetoIntegrador.cuidese.model
 
-class Movimentacao(
+class RegistroDiario(
     val valor: Int,
     val data: String,
     val hora: String,
-    val anotacao: String
+    val anotacao: String,
+    val jejum: Boolean
 ) {
 
 }

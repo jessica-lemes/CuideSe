@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.projetoIntegrador.cuidese.AdapterMovimentacoes
 import com.projetoIntegrador.cuidese.R
-import com.projetoIntegrador.cuidese.model.Movimentacao
+import com.projetoIntegrador.cuidese.model.RegistroDiario
+import com.projetoIntegrador.cuidese.service.RegistrosService
 
 class ControleView : AppCompatActivity() {
 
     lateinit var fabPrincipal: FloatingActionButton
     lateinit var rvPrincipal: RecyclerView
-
+    var registroServico: RegistrosService = RegistrosService()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +41,7 @@ class ControleView : AppCompatActivity() {
 
     fun atualizaRecycler(){
         //Popular lista com dados
-        val lista: ArrayList<Movimentacao> = ArrayList()
+        val lista: ArrayList<RegistroDiario> = registroServico.retornaTodosRegistros()
         rvPrincipal.adapter = AdapterMovimentacoes(lista, this)
         rvPrincipal.layoutManager = LinearLayoutManager(this)
     }

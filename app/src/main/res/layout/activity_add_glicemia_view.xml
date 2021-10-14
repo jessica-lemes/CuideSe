@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.CadastroView">
+    tools:context=".view.AddGlicemiaView">
 
     <TextView
         android:id="@+id/tvValorGlic"
@@ -52,9 +52,9 @@
         android:hint="Valor"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvValorGlic" />
-
 
     <EditText
         android:id="@+id/etData"
@@ -108,8 +108,19 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="Salvar"
+        android:onClick="salvaDados"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAnotacao" />
+
+    <CheckBox
+        android:id="@+id/cbJejum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Em jejum"
+        app:layout_constraintBottom_toTopOf="@+id/btnSalvarDados"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAnotacao" />
 

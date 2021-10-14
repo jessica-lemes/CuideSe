@@ -24,8 +24,8 @@
                 android:text="Data"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewValor"
+                app:layout_constraintEnd_toStartOf="@+id/textViewJejum"
+                app:layout_constraintStart_toEndOf="@+id/textViewGlicemia"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -34,14 +34,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Hora"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewValor"
+                app:layout_constraintEnd_toEndOf="@+id/textViewData"
+                app:layout_constraintStart_toStartOf="@+id/textViewData"
                 app:layout_constraintTop_toBottomOf="@+id/textViewData" />
 
             <TextView
                 android:id="@+id/textViewGlicemia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:text="Glicemia"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -52,6 +53,7 @@
                 android:id="@+id/textViewValor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="100 mg/dl"
                 android:textSize="18sp"
@@ -60,9 +62,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewGlicemia" />
 
             <TextView
+                android:id="@+id/textViewJejum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Jejum:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewSeJejum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sim"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textViewHora"
+                app:layout_constraintEnd_toEndOf="@+id/textViewJejum"
+                app:layout_constraintHorizontal_bias="0.625"
+                app:layout_constraintStart_toStartOf="@+id/textViewJejum" />
+
+            <TextView
                 android:id="@+id/textViewAnotacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Anotação"
                 app:layout_constraintStart_toStartOf="parent"
