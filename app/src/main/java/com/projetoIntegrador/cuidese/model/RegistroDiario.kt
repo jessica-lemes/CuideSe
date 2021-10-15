@@ -1,11 +1,13 @@
 package com.projetoIntegrador.cuidese.model
 
-class RegistroDiario(
-    val valor: Int,
-    val data: String,
-    val hora: String,
-    val anotacao: String,
-    val jejum: Boolean
+import com.google.gson.annotations.SerializedName
+
+data class RegistroDiario(
+    @SerializedName("dado")val valor: Int,
+    @SerializedName("data")val data: String,
+    @SerializedName("hora")val hora: String,
+    @SerializedName("anotacao")val anotacao: String,
+    @SerializedName("jejum")val jejum: Boolean
 ) {
 
 }
