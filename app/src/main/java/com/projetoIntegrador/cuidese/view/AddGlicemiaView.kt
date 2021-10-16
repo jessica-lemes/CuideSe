@@ -73,8 +73,8 @@ class AddGlicemiaView : AppCompatActivity() {
 
         seJejum = jejum.isChecked
 
-        val registroDiario = RegistroDiario(Integer.parseInt(valor.toString()), dataRegistro.toString(), hora.toString(), anotacao.toString(),seJejum)
-        registroServico.cadastraRegistro(registroDiario)
+        //val registroDiario = RegistroDiario(Integer.parseInt(valor.toString()), dataRegistro.toString(), hora.toString(), anotacao.toString(),seJejum)
+        //registroServico.cadastraRegistro(registroDiario)
     }
 
     fun salvaDados(view: View){

@@ -1,6 +1,7 @@
 package com.projetoIntegrador.cuidese.view
 
 import android.content.Intent
+import android.icu.text.DateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,14 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.projetoIntegrador.cuidese.AdapterMovimentacoes
 import com.projetoIntegrador.cuidese.R
+import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.RegistroDiario
+import com.projetoIntegrador.cuidese.model.RetornaRegistros
+import com.projetoIntegrador.cuidese.model.TokenUsuario
 import com.projetoIntegrador.cuidese.service.RegistrosService
+import retrofit2.Call
+import retrofit2.Response
+import java.util.*
+import java.util.logging.Level.parse
+import kotlin.collections.ArrayList
 
 class ControleView : AppCompatActivity() {
 
     lateinit var fabPrincipal: FloatingActionButton
     lateinit var rvPrincipal: RecyclerView
-    var registroServico: RegistrosService = RegistrosService()
+    private val service = NetworkClient().service()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +40,7 @@ class ControleView : AppCompatActivity() {
     }
 
     private fun carregarEventos() {
-        atualizaRecycler()
+        retornaDadosService()
     }
 
     fun adicionaGlicemia(view: View) {
@@ -39,9 +48,41 @@ class ControleView : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun atualizaRecycler(){
+    fun retornaDadosService(){
+        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0NDIzMTQ4LCJleHAiOjE2MzQ0MzE3ODh9.PnuufPMAWCbbSYM2gBrOX1226ZFpGNpfwJw1Vo65sXA" , "Bearer")
+
+        val call: Call<List<RetornaRegistros>> = service.retornaTodosRegistros(token.retornaToken())
+        call.enqueue(object : retrofit2.Callback<List<RetornaRegistros>> {
+            override fun onResponse (
+                call: Call<List<RetornaRegistros>>,
+                response: Response<List<RetornaRegistros>>
+            ) {
+                var retornoAPI = response.body()
+                val lista: ArrayList<RegistroDiario> = ArrayList()
+
+                if (retornoAPI != null) {
+                    for(item in retornoAPI.toList()){
+                        for(lancamento in item.Lancamentos){
+                            lista.add(lancamento)
+                        }
+
+
+                    }
+                }
+                atualizaRecycler(lista)
+            }
+
+            override fun onFailure(call: Call<List<RetornaRegistros>>, t: Throwable) {
+                t
+            }
+
+        })
+    }
+
+
+    fun atualizaRecycler(lista: ArrayList<RegistroDiario>){
         //Popular lista com dados
-        val lista: ArrayList<RegistroDiario> = registroServico.retornaTodosRegistros()
+        //val lista: ArrayList<RegistroDiario> = registroServico.retornaTodosRegistros()
         rvPrincipal.adapter = AdapterMovimentacoes(lista, this)
         rvPrincipal.layoutManager = LinearLayoutManager(this)
     }

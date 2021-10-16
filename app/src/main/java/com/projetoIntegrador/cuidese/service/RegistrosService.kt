@@ -1,13 +1,13 @@
 package com.projetoIntegrador.cuidese.service
 
-import android.widget.Toast
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.RegistroDiario
 import com.projetoIntegrador.cuidese.model.RetornaRegistros
 import com.projetoIntegrador.cuidese.model.TokenUsuario
+import com.projetoIntegrador.cuidese.view.ControleView
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Header
+
 
 class RegistrosService {
 
@@ -28,7 +28,7 @@ class RegistrosService {
 
     fun retornaTodosRegistros() : ArrayList<RegistroDiario>{
 
-        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0MzE2MDc2LCJleHAiOjE2MzQzMjQ3MTZ9.Qh3NXqPtmWX5y9ijFi8ewAjPczJBX3XQCPiLmiWE4Wg", "Bearer")
+        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0MzI2Nzg4LCJleHAiOjE2MzQzMzU0Mjh9.fVPRlfMl8XZkLILIJPMVvIpSyy1z6ZFu5LHdTLud5ls", "Bearer")
         val lista: ArrayList<RegistroDiario> = ArrayList()
 
         val call: Call<List<RetornaRegistros>> = service.retornaTodosRegistros(token.retornaToken())
@@ -45,11 +45,13 @@ class RegistrosService {
                             lista.add(lancamento)
                     }
                 }
+                //ControleView().atualizaRecycler(lista)
             }
 
             override fun onFailure(call: Call<List<RetornaRegistros>>, t: Throwable) {
                 t
             }
+
         })
 
         return lista

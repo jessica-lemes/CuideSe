@@ -3,6 +3,7 @@
     package="com.projetoIntegrador.cuidese">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,14 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CuideSe">
-        <activity android:name=".view.PrincipalView"></activity>
-        <activity android:name=".view.AddGlicemiaView" />
-        <activity android:name=".view.Splash">
+        <activity android:name=".view.PrincipalView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter></activity>
+        <activity android:name=".view.AddGlicemiaView" />
+        <activity android:name=".view.Splash">
+
         </activity>
         <activity android:name=".view.LoginView"></activity>
         <activity android:name=".view.CadastroView"></activity>

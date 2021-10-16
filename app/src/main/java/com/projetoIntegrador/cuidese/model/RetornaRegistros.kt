@@ -5,13 +5,10 @@ import com.google.gson.annotations.SerializedName
 
 class RetornaRegistros(
     @SerializedName("id")
-    @Expose
     val Id : Int,
     @SerializedName("usuario")
-    @Expose
     val Usuario: Usuario,
     @SerializedName("lancamentos")
-    @Expose
     val Lancamentos : ArrayList<RegistroDiario>
 ) {
 }
