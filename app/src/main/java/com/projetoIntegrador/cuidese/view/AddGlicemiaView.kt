@@ -9,8 +9,13 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import com.projetoIntegrador.cuidese.R
+import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.RegistroDiario
+import com.projetoIntegrador.cuidese.model.TokenUsuario
+import com.projetoIntegrador.cuidese.model.Usuario
 import com.projetoIntegrador.cuidese.service.RegistrosService
+import retrofit2.Call
+import retrofit2.Response
 import java.util.*
 
 class AddGlicemiaView : AppCompatActivity() {
@@ -21,10 +26,9 @@ class AddGlicemiaView : AppCompatActivity() {
     lateinit var anotacao: EditText
     lateinit var jejum: CheckBox
     lateinit var btnSalvarDados: Button
+    private val service = NetworkClient().service()
 
     var registroServico: RegistrosService = RegistrosService()
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +51,9 @@ class AddGlicemiaView : AppCompatActivity() {
 
 
 
-    fun cadastraRegistro() {
+    fun cadastrarRegistro(view: View) {
+        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI5IiwiaWF0IjoxNjM0NDgxNzAxLCJleHAiOjE2MzQ0OTAzNDF9.zv8omB-XdXfbpCndIhYyAfErrm5EscdqVo-Lk0WeISQ", "Bearer")
+
         val valor = valorGlicemia.text
         val dataRegistro = data.text
         val hora = hora.text
@@ -56,17 +62,32 @@ class AddGlicemiaView : AppCompatActivity() {
 
         seJejum = jejum.isChecked
 
-        //val registroDiario = RegistroDiario(Integer.parseInt(valor.toString()), dataRegistro.toString(), hora.toString(), anotacao.toString(),seJejum)
-        //registroServico.cadastraRegistro(registroDiario)
+        //val registroDiario = RegistroDiario(0, Integer.parseInt(valor.toString()), null, "", anotacao.toString(),seJejum)
+        val registroDiario = RegistroDiario(0, Integer.parseInt(valor.toString()), seJejum)
+        cadastrarUsuarioService(token, registroDiario)
     }
 
-    fun salvaDados(view: View){
+    fun cadastrarUsuarioService(token : TokenUsuario, registro :RegistroDiario){
 
-        //Programar a parte que pega as informações e guarda no banco e depois manda pro RecyclerView
+        val call: Call<RegistroDiario> = service.cadastrarRegistro(token.retornaToken(),registro)
+        call.enqueue(object : retrofit2.Callback<RegistroDiario> {
+            override fun onResponse (
+                call: Call<RegistroDiario>,
+                response: Response<RegistroDiario>
+            ) {
+                redirecionarParaHistorico()
+            }
 
-        cadastraRegistro()
-        intent = Intent(this, ControleView::class.java)
-        startActivity(intent)
+            override fun onFailure(call: Call<RegistroDiario>, t: Throwable) {
+                t
+            }
+        })
+    }
+
+    fun redirecionarParaHistorico(){
+        Intent(this, ControleView::class.java).apply {
+            startActivity(this)
+        }
     }
 
 }

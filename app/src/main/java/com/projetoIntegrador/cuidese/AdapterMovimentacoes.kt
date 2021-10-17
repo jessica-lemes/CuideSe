@@ -21,9 +21,9 @@ class AdapterMovimentacoes(val arrayDeMovimentacao: ArrayList<RegistroDiario>, v
         arrayDeMovimentacao[position].apply {
 
             holder.textViewValor.text = this.valor.toString()
-            holder.textViewData.text = this.data.toString()
-            holder.textViewHora.text = this.hora
-            holder.textViewAnotacao.text = this.anotacao
+//            holder.textViewData.text = this.data.toString()
+//            holder.textViewHora.text = this.hora
+//            holder.textViewAnotacao.text = this.anotacao
             holder.textViewSeJejum.text = this.jejum.toString()
         }
     }

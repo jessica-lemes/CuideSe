@@ -71,14 +71,11 @@ class CadastroView : AppCompatActivity() {
             override fun onFailure(call: Call<Usuario>, t: Throwable) {
                 t
             }
-
         })
     }
     fun redirecionarParaTelaPrincipal(){
-        btnTelaCad.setOnClickListener{
-            Intent(this, PrincipalView::class.java).apply {
-                startActivity(this)
-            }
+        Intent(this, PrincipalView::class.java).apply {
+            startActivity(this)
         }
     }
 

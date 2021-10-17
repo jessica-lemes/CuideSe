@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CuideSe">
         <activity android:name=".view.PrincipalView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             </activity>
         <activity android:name=".view.AddGlicemiaView" />
         <activity android:name=".view.Splash">
@@ -20,11 +25,7 @@
         </activity>
         <activity android:name=".view.LoginView"></activity>
         <activity android:name=".view.CadastroView">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".view.GraficoView" />
         <activity android:name=".view.ControleView"></activity>

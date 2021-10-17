@@ -49,7 +49,7 @@ class ControleView : AppCompatActivity() {
     }
 
     fun retornaDadosService(){
-        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0NDM2Nzk3LCJleHAiOjE2MzQ0NDU0Mzd9.7GwKLyR_hAY6ckQx5dpjQDya-HiLiu2uzRmMZh2E7UQ" , "Bearer")
+        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI5IiwiaWF0IjoxNjM0NDgxNzAxLCJleHAiOjE2MzQ0OTAzNDF9.zv8omB-XdXfbpCndIhYyAfErrm5EscdqVo-Lk0WeISQ" , "Bearer")
 
         val call: Call<List<RetornaRegistros>> = service.retornaTodosRegistros(token.retornaToken())
         call.enqueue(object : retrofit2.Callback<List<RetornaRegistros>> {
