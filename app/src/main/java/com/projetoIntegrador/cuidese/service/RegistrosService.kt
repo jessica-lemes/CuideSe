@@ -28,7 +28,7 @@ class RegistrosService {
 
     fun retornaTodosRegistros() : ArrayList<RegistroDiario>{
 
-        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0MzI2Nzg4LCJleHAiOjE2MzQzMzU0Mjh9.fVPRlfMl8XZkLILIJPMVvIpSyy1z6ZFu5LHdTLud5ls", "Bearer")
+        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0NDM2Nzk3LCJleHAiOjE2MzQ0NDU0Mzd9.7GwKLyR_hAY6ckQx5dpjQDya-HiLiu2uzRmMZh2E7UQ", "Bearer")
         val lista: ArrayList<RegistroDiario> = ArrayList()
 
         val call: Call<List<RetornaRegistros>> = service.retornaTodosRegistros(token.retornaToken())
@@ -59,6 +59,7 @@ class RegistrosService {
 
     fun cadastraRegistro(registroDiario: RegistroDiario){
         registroDiario.valor
+        registroDiario.jejum
     }
 
 

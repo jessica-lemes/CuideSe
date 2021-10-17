@@ -21,7 +21,6 @@ class AddGlicemiaView : AppCompatActivity() {
     lateinit var anotacao: EditText
     lateinit var jejum: CheckBox
     lateinit var btnSalvarDados: Button
-    lateinit var calendario: Calendar
 
     var registroServico: RegistrosService = RegistrosService()
 
@@ -44,24 +43,8 @@ class AddGlicemiaView : AppCompatActivity() {
     }
 
     private fun carregarEventos() {
-        carregaCalendario()
     }
 
-    fun carregaCalendario() {
-        val calendario = Calendar.getInstance()
-        var ano = calendario.get(Calendar.YEAR)
-        var mes = calendario.get(Calendar.MONTH)
-        var dia = calendario.get(Calendar.DAY_OF_MONTH)
-
-        data.setOnClickListener {
-            val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { DatePicker, ano, mes, dia ->
-                //data.text = "" + dia + "/" + (mes + 1) + "/" + ano
-                //data.set(ano,mes,dia)
-            }, ano, mes, dia)
-
-            datePicker.show()
-        }
-    }
 
 
     fun cadastraRegistro() {

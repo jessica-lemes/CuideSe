@@ -49,7 +49,7 @@ class ControleView : AppCompatActivity() {
     }
 
     fun retornaDadosService(){
-        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0NDIzMTQ4LCJleHAiOjE2MzQ0MzE3ODh9.PnuufPMAWCbbSYM2gBrOX1226ZFpGNpfwJw1Vo65sXA" , "Bearer")
+        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI3IiwiaWF0IjoxNjM0NDM2Nzk3LCJleHAiOjE2MzQ0NDU0Mzd9.7GwKLyR_hAY6ckQx5dpjQDya-HiLiu2uzRmMZh2E7UQ" , "Bearer")
 
         val call: Call<List<RetornaRegistros>> = service.retornaTodosRegistros(token.retornaToken())
         call.enqueue(object : retrofit2.Callback<List<RetornaRegistros>> {
@@ -63,10 +63,9 @@ class ControleView : AppCompatActivity() {
                 if (retornoAPI != null) {
                     for(item in retornoAPI.toList()){
                         for(lancamento in item.Lancamentos){
+
                             lista.add(lancamento)
                         }
-
-
                     }
                 }
                 atualizaRecycler(lista)

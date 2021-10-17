@@ -6,7 +6,7 @@ import java.util.*
 
 data class RegistroDiario(
     @SerializedName("dado")val valor: Int,
-    @SerializedName("data")val data: String,
+    @SerializedName("data")val data: Date,
     @SerializedName("hora")val hora: String,
     @SerializedName("anotacao")val anotacao: String,
     @SerializedName("jejum")val jejum: Boolean

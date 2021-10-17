@@ -1,10 +1,12 @@
 package com.projetoIntegrador.cuidese.model
 
-class Usuario (
-    val id: Int,
-    val email : String,
-    val nome : String,
-    val senha : String
+import com.google.gson.annotations.SerializedName
+
+data class Usuario (
+    @SerializedName("id")val id: Int?,
+    @SerializedName("email")val email : String,
+    @SerializedName("nome")val nome : String,
+    @SerializedName("senha")val senha : String
 ){
 
 }
