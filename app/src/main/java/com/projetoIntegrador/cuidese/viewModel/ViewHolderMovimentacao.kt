@@ -1,8 +1,9 @@
-package com.projetoIntegrador.cuidese
+package com.projetoIntegrador.cuidese.viewModel
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.projetoIntegrador.cuidese.R
 
 class ViewHolderMovimentacao(view: View) : RecyclerView.ViewHolder(view) {
     var textViewValor: TextView

@@ -14,6 +14,7 @@ import com.projetoIntegrador.cuidese.model.RegistroDiario
 import com.projetoIntegrador.cuidese.model.TokenUsuario
 import com.projetoIntegrador.cuidese.model.Usuario
 import com.projetoIntegrador.cuidese.service.RegistrosService
+import com.projetoIntegrador.cuidese.viewModel.TokenGlobal
 import retrofit2.Call
 import retrofit2.Response
 import java.util.*
@@ -27,8 +28,6 @@ class AddGlicemiaView : AppCompatActivity() {
     lateinit var jejum: CheckBox
     lateinit var btnSalvarDados: Button
     private val service = NetworkClient().service()
-
-    var registroServico: RegistrosService = RegistrosService()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +51,7 @@ class AddGlicemiaView : AppCompatActivity() {
 
 
     fun cadastrarRegistro(view: View) {
-        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI5IiwiaWF0IjoxNjM0NDgxNzAxLCJleHAiOjE2MzQ0OTAzNDF9.zv8omB-XdXfbpCndIhYyAfErrm5EscdqVo-Lk0WeISQ", "Bearer")
+        val token = TokenGlobal.tokenGlobal
 
         val valor = valorGlicemia.text
         val dataRegistro = data.text

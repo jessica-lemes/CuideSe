@@ -1,24 +1,21 @@
 package com.projetoIntegrador.cuidese.view
 
 import android.content.Intent
-import android.icu.text.DateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.projetoIntegrador.cuidese.AdapterMovimentacoes
+import com.projetoIntegrador.cuidese.viewModel.AdapterMovimentacoes
 import com.projetoIntegrador.cuidese.R
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.RegistroDiario
 import com.projetoIntegrador.cuidese.model.RetornaRegistros
 import com.projetoIntegrador.cuidese.model.TokenUsuario
-import com.projetoIntegrador.cuidese.service.RegistrosService
+import com.projetoIntegrador.cuidese.viewModel.TokenGlobal
 import retrofit2.Call
 import retrofit2.Response
-import java.util.*
-import java.util.logging.Level.parse
 import kotlin.collections.ArrayList
 
 class ControleView : AppCompatActivity() {
@@ -49,8 +46,7 @@ class ControleView : AppCompatActivity() {
     }
 
     fun retornaDadosService(){
-        val token = TokenUsuario("eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgQ3VpZGUtc2UiLCJzdWIiOiI5IiwiaWF0IjoxNjM0NDgxNzAxLCJleHAiOjE2MzQ0OTAzNDF9.zv8omB-XdXfbpCndIhYyAfErrm5EscdqVo-Lk0WeISQ" , "Bearer")
-
+        val token = TokenGlobal.tokenGlobal
         val call: Call<List<RetornaRegistros>> = service.retornaTodosRegistros(token.retornaToken())
         call.enqueue(object : retrofit2.Callback<List<RetornaRegistros>> {
             override fun onResponse (
@@ -80,8 +76,6 @@ class ControleView : AppCompatActivity() {
 
 
     fun atualizaRecycler(lista: ArrayList<RegistroDiario>){
-        //Popular lista com dados
-        //val lista: ArrayList<RegistroDiario> = registroServico.retornaTodosRegistros()
         rvPrincipal.adapter = AdapterMovimentacoes(lista, this)
         rvPrincipal.layoutManager = LinearLayoutManager(this)
     }

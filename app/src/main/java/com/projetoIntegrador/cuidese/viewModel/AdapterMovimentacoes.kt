@@ -1,13 +1,12 @@
-package com.projetoIntegrador.cuidese
+package com.projetoIntegrador.cuidese.viewModel
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.projetoIntegrador.cuidese.R
 import com.projetoIntegrador.cuidese.model.RegistroDiario
-import java.util.*
 import kotlin.collections.ArrayList
-import java.text.SimpleDateFormat
 
 class AdapterMovimentacoes(val arrayDeMovimentacao: ArrayList<RegistroDiario>, val context: Context):
     RecyclerView.Adapter<ViewHolderMovimentacao>() {
