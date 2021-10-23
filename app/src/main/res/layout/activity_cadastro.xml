@@ -92,4 +92,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etConfirmaSenhaCad" />
 
+    <TextView
+        android:id="@+id/tvJaTemCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="redirecionarParaLogin"
+        android:text="Já tem cadastro? Efetuar login"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTelaCad" />
 </androidx.constraintlayout.widget.ConstraintLayout>

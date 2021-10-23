@@ -79,5 +79,11 @@ class CadastroView : AppCompatActivity() {
         }
     }
 
+    fun redirecionarParaLogin(view: View){
+        Intent(this, LoginView::class.java).apply {
+            startActivity(this)
+        }
+    }
+
 
 }

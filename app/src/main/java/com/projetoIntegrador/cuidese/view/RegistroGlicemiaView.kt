@@ -1,6 +1,5 @@
 package com.projetoIntegrador.cuidese.view
 
-import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,14 +11,12 @@ import com.projetoIntegrador.cuidese.R
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.RegistroDiario
 import com.projetoIntegrador.cuidese.model.TokenUsuario
-import com.projetoIntegrador.cuidese.model.Usuario
-import com.projetoIntegrador.cuidese.service.RegistrosService
 import com.projetoIntegrador.cuidese.viewModel.TokenGlobal
 import retrofit2.Call
 import retrofit2.Response
 import java.util.*
 
-class AddGlicemiaView : AppCompatActivity() {
+class RegistroGlicemiaView : AppCompatActivity() {
 
     lateinit var valorGlicemia: EditText
     lateinit var data: EditText
@@ -31,7 +28,7 @@ class AddGlicemiaView : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_glicemia_view)
+        setContentView(R.layout.activity_registro_glicemia)
         carregarElementos()
         carregarEventos()
     }

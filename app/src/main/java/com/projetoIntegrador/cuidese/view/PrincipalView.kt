@@ -32,7 +32,7 @@ class PrincipalView : AppCompatActivity() {
 
     fun registro(){
         btnRegistroDiario.setOnClickListener{
-            Intent(this, AddGlicemiaView::class.java).apply { startActivity(this) }
+            Intent(this, RegistroGlicemiaView::class.java).apply { startActivity(this) }
         }
     }
 

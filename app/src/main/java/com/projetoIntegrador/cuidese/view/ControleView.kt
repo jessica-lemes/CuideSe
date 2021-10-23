@@ -12,7 +12,6 @@ import com.projetoIntegrador.cuidese.R
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.RegistroDiario
 import com.projetoIntegrador.cuidese.model.RetornaRegistros
-import com.projetoIntegrador.cuidese.model.TokenUsuario
 import com.projetoIntegrador.cuidese.viewModel.TokenGlobal
 import retrofit2.Call
 import retrofit2.Response
@@ -41,7 +40,7 @@ class ControleView : AppCompatActivity() {
     }
 
     fun adicionaGlicemia(view: View) {
-        val intent = Intent(this, AddGlicemiaView::class.java)
+        val intent = Intent(this, RegistroGlicemiaView::class.java)
         startActivity(intent)
     }
 
