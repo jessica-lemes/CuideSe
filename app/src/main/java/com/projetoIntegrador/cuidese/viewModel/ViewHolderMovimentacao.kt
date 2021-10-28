@@ -9,7 +9,7 @@ class ViewHolderMovimentacao(view: View) : RecyclerView.ViewHolder(view) {
     var textViewValor: TextView
     var textViewData: TextView
     var textViewHora: TextView
-    var textViewAnotacao: TextView
+    //var textViewAnotacao: TextView
     var textViewSeJejum: TextView
 
     init {
@@ -17,7 +17,7 @@ class ViewHolderMovimentacao(view: View) : RecyclerView.ViewHolder(view) {
         textViewValor = view.findViewById(R.id.textViewValor)
         textViewData = view.findViewById(R.id.textViewData)
         textViewHora = view.findViewById(R.id.textViewHora)
-        textViewAnotacao = view.findViewById(R.id.textViewAnotacao)
+        //textViewAnotacao = view.findViewById(R.id.textViewAnotacao)
         textViewSeJejum = view.findViewById(R.id.textViewSeJejum)
 
     }

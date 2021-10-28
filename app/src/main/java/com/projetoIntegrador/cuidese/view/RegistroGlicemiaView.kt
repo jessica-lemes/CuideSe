@@ -1,14 +1,15 @@
 package com.projetoIntegrador.cuidese.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import com.projetoIntegrador.cuidese.R
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
+import com.projetoIntegrador.cuidese.model.Lancamento
 import com.projetoIntegrador.cuidese.model.RegistroDiario
 import com.projetoIntegrador.cuidese.model.TokenUsuario
 import com.projetoIntegrador.cuidese.viewModel.TokenGlobal
@@ -19,9 +20,6 @@ import java.util.*
 class RegistroGlicemiaView : AppCompatActivity() {
 
     lateinit var valorGlicemia: EditText
-    lateinit var data: EditText
-    lateinit var hora: EditText
-    lateinit var anotacao: EditText
     lateinit var jejum: CheckBox
     lateinit var btnSalvarDados: Button
     private val service = NetworkClient().service()
@@ -35,9 +33,6 @@ class RegistroGlicemiaView : AppCompatActivity() {
 
     private fun carregarElementos() {
         valorGlicemia = findViewById(R.id.etValor)
-        data = findViewById(R.id.etData)
-        hora = findViewById(R.id.etHora)
-        anotacao = findViewById(R.id.etAnotacao)
         jejum = findViewById(R.id.cbJejum)
         btnSalvarDados = findViewById(R.id.btnSalvarDados)
     }
@@ -45,27 +40,22 @@ class RegistroGlicemiaView : AppCompatActivity() {
     private fun carregarEventos() {
     }
 
-
-
     fun cadastrarRegistro(view: View) {
         val token = TokenGlobal.tokenGlobal
-
         val valor = valorGlicemia.text
-        val dataRegistro = data.text
-        val hora = hora.text
-        val anotacao = anotacao.text
-        val seJejum : Boolean
-
+        var seJejum : Boolean
         seJejum = jejum.isChecked
 
-        //val registroDiario = RegistroDiario(0, Integer.parseInt(valor.toString()), null, "", anotacao.toString(),seJejum)
+
         val registroDiario = RegistroDiario(0, Integer.parseInt(valor.toString()), seJejum)
-        cadastrarUsuarioService(token, registroDiario)
+        var lancamentos = Lancamento(listOf(registroDiario))
+
+        cadastrarRegistroService(token, lancamentos)
     }
 
-    fun cadastrarUsuarioService(token : TokenUsuario, registro :RegistroDiario){
+    fun cadastrarRegistroService(token: TokenUsuario, lancamento: Lancamento){
 
-        val call: Call<RegistroDiario> = service.cadastrarRegistro(token.retornaToken(),registro)
+        val call: Call<RegistroDiario> = service.cadastrarRegistro(token.retornaToken(),lancamento)
         call.enqueue(object : retrofit2.Callback<RegistroDiario> {
             override fun onResponse (
                 call: Call<RegistroDiario>,

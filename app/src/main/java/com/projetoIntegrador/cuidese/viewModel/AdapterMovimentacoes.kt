@@ -12,7 +12,7 @@ class AdapterMovimentacoes(val arrayDeMovimentacao: ArrayList<RegistroDiario>, v
     RecyclerView.Adapter<ViewHolderMovimentacao>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMovimentacao {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.lista_movimentacao, parent,false)
+        val view = inflater.inflate(R.layout.lista_registros, parent,false)
         return ViewHolderMovimentacao(view)
     }
 

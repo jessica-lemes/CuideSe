@@ -1,9 +1,6 @@
 package com.projetoIntegrador.cuidese.data.network
 
-import com.projetoIntegrador.cuidese.model.RegistroDiario
-import com.projetoIntegrador.cuidese.model.RetornaRegistros
-import com.projetoIntegrador.cuidese.model.TokenUsuario
-import com.projetoIntegrador.cuidese.model.Usuario
+import com.projetoIntegrador.cuidese.model.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -16,7 +13,7 @@ interface ApiService {
     fun cadastrarUsuario(@Body usuario : Usuario) : Call<Usuario>
 
     @POST("acompanhamento")
-    fun cadastrarRegistro(@Header("Authorization")token: String, @Body registro : RegistroDiario) : Call<RegistroDiario>
+    fun cadastrarRegistro(@Header("Authorization")token: String, @Body lancamentos: Lancamento) : Call<RegistroDiario>
 
     @POST("auth")
     fun loginUsuario(@Body login : Usuario) : Call<TokenUsuario>

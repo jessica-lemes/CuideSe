@@ -1,12 +1,13 @@
 package com.projetoIntegrador.cuidese.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.projetoIntegrador.cuidese.R
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.TokenUsuario
@@ -46,9 +47,17 @@ class LoginView : AppCompatActivity() {
         var email = campoEmail.text
         var senha = campoSenha.text
 
-        var usuario = Usuario(0,email.toString(),"", senha.toString())
+        if (!email.isEmpty()) {
+            if (!senha.isEmpty()) {
+                var usuario = Usuario(0,email.toString(),"", senha.toString())
+                logarUsuario(usuario)
+            } else {
+                mensagem("Preencha a senha!")
+            }
+        } else {
+            mensagem("Preencha o email!")
+        }
 
-        logarUsuario(usuario)
     }
 
     fun logarUsuario(usuario : Usuario){
@@ -61,10 +70,9 @@ class LoginView : AppCompatActivity() {
                 var token = response.body()
                 if (token != null) {
                     TokenGlobal.adicionaTokenAoTokenGlobal(token)
+                    redirecionarParaTelaPrincipal()
                 }
-                redirecionarParaTelaPrincipal()
             }
-
             override fun onFailure(call: Call<TokenUsuario>, t: Throwable) {
                 t
             }
@@ -83,6 +91,12 @@ class LoginView : AppCompatActivity() {
                 startActivity(this)
             }
         }
+    }
+
+    fun mensagem(msg: String) {
+        val duracao = Toast.LENGTH_SHORT
+        val toast = Toast.makeText(this, msg, duracao)
+        toast.show()
     }
 
 
