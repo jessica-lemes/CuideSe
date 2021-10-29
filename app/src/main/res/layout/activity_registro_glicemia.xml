@@ -7,23 +7,13 @@
     tools:context=".view.RegistroGlicemiaView">
 
     //Adicionando toolbar e depois o icone de voltar
-    <include layout="@layout/toolbar"/>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
     toolbar.overflowIcon = getDrawable(R.drawable.ic_baseline_more_vert_24)
 
-    <TextView
-        android:id="@+id/tvValorGlic"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:text="cuideSe"
-        android:textColor="@color/green"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-<!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
 <!--        android:id="@+id/etValor"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
@@ -44,6 +34,21 @@
 <!--    </com.google.android.material.textfield.TextInputLayout>-->
 
 
+    <TextView
+        android:id="@+id/tvValorGlic"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:text="cuideSe"
+        android:textColor="@color/green"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
     <EditText
         android:id="@+id/etValor"
         android:layout_width="0dp"
@@ -59,8 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvValorGlic" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tvValorGlic"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnSalvarDados"
@@ -72,10 +77,10 @@
         android:text="Salvar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.384" />
 
     <CheckBox
         android:id="@+id/cbJejum"

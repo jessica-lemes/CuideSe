@@ -36,6 +36,7 @@ class ControleView : AppCompatActivity() {
         //Instancia a toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+        toolbar.title= "Histórico"
         //Insere o navigationIcon na toolbar e define se ira aparecer ou nao (true or false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_more_vert_24)

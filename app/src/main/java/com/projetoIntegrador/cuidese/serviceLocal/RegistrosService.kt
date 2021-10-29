@@ -1,10 +1,9 @@
-package com.projetoIntegrador.cuidese.service
+package com.projetoIntegrador.cuidese.serviceLocal
 
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
 import com.projetoIntegrador.cuidese.model.RegistroDiario
 import com.projetoIntegrador.cuidese.model.RetornaRegistros
 import com.projetoIntegrador.cuidese.model.TokenUsuario
-import com.projetoIntegrador.cuidese.view.ControleView
 import retrofit2.Call
 import retrofit2.Response
 

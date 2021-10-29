@@ -9,7 +9,7 @@
     tools:ignore="OnClick">
 
     //Adicionando toolbar e depois o icone de voltar
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
     toolbar.overflowIcon = getDrawable(R.drawable.ic_baseline_more_vert_24)
 
     <!--    <TextView

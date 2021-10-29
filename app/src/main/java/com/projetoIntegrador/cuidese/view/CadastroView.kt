@@ -29,8 +29,6 @@ class CadastroView : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
-        //Altera o titulo da ToolBar
-        supportActionBar?.title = "Cadastro"
 
         carregarElementos()
         carregarEventos()

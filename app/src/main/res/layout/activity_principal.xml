@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".view.PrincipalView">
 
+    //Adicionando toolbar
+    <include layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/tvLogo"

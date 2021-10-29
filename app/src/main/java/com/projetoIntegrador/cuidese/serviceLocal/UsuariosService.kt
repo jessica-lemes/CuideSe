@@ -1,4 +1,4 @@
-package com.projetoIntegrador.cuidese.service
+package com.projetoIntegrador.cuidese.serviceLocal
 
 import com.projetoIntegrador.cuidese.data.network.NetworkClient
 
