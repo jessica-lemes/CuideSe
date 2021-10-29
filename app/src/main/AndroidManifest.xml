@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CuideSe">
-        <activity android:name=".view.PrincipalView"></activity>
+        <activity android:name=".view.PrincipalView">
+        </activity>
         <activity android:name=".view.RegistroGlicemiaView" />
         <activity android:name=".view.Splash">
 
@@ -23,6 +24,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".view.CadastroView">
 

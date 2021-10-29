@@ -8,18 +8,22 @@
     tools:context=".view.ControleView"
     tools:ignore="OnClick">
 
-    <TextView
-        android:id="@+id/tvPrincipal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Controle glicemico"
-        android:textColor="@color/green"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+    //Adicionando toolbar e depois o icone de voltar
+    <include layout="@layout/toolbar"/>
+    toolbar.overflowIcon = getDrawable(R.drawable.ic_baseline_more_vert_24)
+
+    <!--    <TextView
+            android:id="@+id/tvPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Controle glicêmico"
+            android:textColor="@color/green"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>-->
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -34,8 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrincipal" />
-
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabPrincipal"
@@ -47,6 +50,8 @@
         android:src="@drawable/ic_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
+
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

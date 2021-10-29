@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".view.RegistroGlicemiaView">
 
+    //Adicionando toolbar e depois o icone de voltar
+    <include layout="@layout/toolbar"/>
+    toolbar.overflowIcon = getDrawable(R.drawable.ic_baseline_more_vert_24)
+
     <TextView
         android:id="@+id/tvValorGlic"
         android:layout_width="0dp"

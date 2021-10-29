@@ -19,11 +19,21 @@ class AdapterMovimentacoes(val arrayDeMovimentacao: ArrayList<RegistroDiario>, v
     override fun onBindViewHolder(holder: ViewHolderMovimentacao, position: Int) {
         arrayDeMovimentacao[position].apply {
 
+            this.populaDataHora()
+
+            //Mudando true e false para Sim e Não
+            var booleanJejum = this.jejum
+            var statusJejum = ""
+            if(booleanJejum == true){
+                statusJejum = "Sim"
+            }else{
+                statusJejum = "Não"
+            }
+
             holder.textViewValor.text = this.valor.toString()
-//            holder.textViewData.text = this.data.toString()
-//            holder.textViewHora.text = this.hora
-//            holder.textViewAnotacao.text = this.anotacao
-            holder.textViewSeJejum.text = this.jejum.toString()
+            holder.textViewSeJejum.text = statusJejum
+            holder.textViewData.text = this.dataTexto
+            holder.textViewHora.text = this.horaTexto
         }
     }
 

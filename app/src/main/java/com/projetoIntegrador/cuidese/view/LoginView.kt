@@ -27,6 +27,8 @@ class LoginView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        //Altera o titulo da ToolBar
+        supportActionBar?.title = "Login"
 
         carregarElementos()
         carregarEventos()
