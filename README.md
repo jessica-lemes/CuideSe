@@ -1,2 +1,2 @@
 # CuideSe
-Aplicativo para registro de glicemia e pressão arterial.
+Aplicativo para registro de glicemia, desenvolvido para projeto Integrador da faculdade Eniac.
